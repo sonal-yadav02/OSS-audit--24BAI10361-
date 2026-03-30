@@ -1,0 +1,24 @@
+#!/bin/bash
+# Script 3: System Audit
+
+echo "Checking Python..."
+
+if command -v python3 &> /dev/null; then
+    echo "Python3 is installed"
+    python3 --version
+else
+    echo "Python3 not found"
+fi
+
+echo ""
+echo "Directory Audit Report"
+echo "----------------------"
+
+for dir in /etc /var/log /home /usr/bin /tmp
+do
+    if [ -d "$dir" ]; then
+        PERM=$(ls -ld $dir | awk '{print $1}')
+        SIZE=$(du -sh $dir 2>/dev/null | cut -f1)
+        echo "$dir => $PERM | Size: $SIZE"
+    fi
+done
