@@ -1,0 +1,17 @@
+#!/bin/bash
+# Script 2: FOSS Package Inspector
+
+PACKAGE="git"
+
+echo "===== FOSS PACKAGE INSPECTOR ====="
+
+if command -v $PACKAGE &> /dev/null; then
+    echo "$PACKAGE is installed"
+
+    VERSION=$($PACKAGE --version | awk '{print $3}')
+    echo "Version: $VERSION"
+
+    echo "Git: Distributed version control system promoting open collaboration"
+else
+    echo "$PACKAGE is not installed"
+fi
