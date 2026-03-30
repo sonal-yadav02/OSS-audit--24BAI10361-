@@ -1,0 +1,23 @@
+#!/bin/bash
+# Script 5: Manifesto Generator
+
+echo "Answer the following questions:"
+
+read -p "1. Open-source tool you use: " tool
+read -p "2. What does freedom mean? " freedom
+read -p "3. Why open source? " reason
+
+echo ""
+echo "Generating manifesto..."
+
+cat <<EOF > manifesto.txt
+OPEN SOURCE MANIFESTO
+
+Tool Used: $tool
+Freedom Means: $freedom
+Why Open Source: $reason
+
+Open source promotes collaboration, transparency, and innovation.
+EOF
+
+echo "Manifesto saved as manifesto.txt"
