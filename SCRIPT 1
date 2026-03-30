@@ -1,0 +1,32 @@
+#!/bin/bash
+# Script 1: System Identity Report
+
+clear
+
+echo "=============================="
+echo "     Open Source Audit"
+echo "=============================="
+
+# System info
+DISTRO=$(grep "PRETTY_NAME" /etc/os-release | cut -d'"' -f2)
+KERNEL=$(uname -r)
+
+# Use passed values OR fallback to system
+USER_NAME=${USER_NAME:-$(whoami)}
+HOME_DIR=${HOME_DIR:-$HOME}
+
+UPTIME=$(uptime -p | sed 's/up //')
+CURRENT_DATE=$(date "+%A %d %B %Y %I:%M:%S %p %Z")
+
+echo ""
+echo "Software: Python"
+echo "Kernel  : $KERNEL"
+echo "User    : $USER_NAME"
+echo "Home Dir: $HOME_DIR"
+echo "Uptime  : $UPTIME"
+echo "Date    : $CURRENT_DATE"
+echo "Distro  : $DISTRO"
+echo "License : Open Source (GPL-style freedom)"
+
+echo ""
+echo "=============================="
